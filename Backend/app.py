@@ -6,6 +6,12 @@ app = Flask(__name__)
 @app.route('/')
 def login():
     return "You are logged in"
+    
+
+
+@app.route("/get", methods=['GET', 'POST'])
+def get():
+    return 'why'
 
 
 if __name__ == '__main__':
