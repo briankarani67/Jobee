@@ -9,9 +9,14 @@ def login():
     
 
 
-@app.route("/get", methods=['GET', 'POST'])
-def get():
-    return 'why'
+@app.route("/greet/<name>")
+def get(name):
+    return f"Hi {name}, Why always, you {name}?"
+
+@app.route("/add/<int:num1>/<int:num2>")
+def add(num1, num2):
+    added = num1+num2
+    return f"{num1} + {num2} = {num1+num2}"
 
 
 if __name__ == '__main__':
