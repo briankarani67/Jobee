@@ -1,13 +1,19 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 
 @app.route('/')
 def login():
     return "You are logged in"
     
+@app.route('/render')
+def hello():
+    return render_template('index.html')
 
+@app.route('/brain')
+def brain():
+    return render_template('brain.html')
 
 @app.route("/greet/<name>")
 def get(name):
@@ -20,9 +26,12 @@ def add(num1, num2):
 
 @app.route('/handle_params')
 def handle():
-    name = request.args['name']
-    age = request.args['age']
-    return f"My name is {name}, am {age} years old."
+    if 'name' in request.args.keys() and 'age' in request.args.keys():
+        name = request.args['name']
+        age = request.args['age']
+        return f"My name is {name}, am {age} years old."
+    else:
+        return "There are parameters missing"
 
 
 
