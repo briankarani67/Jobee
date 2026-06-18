@@ -3,4 +3,10 @@
 {% block title %} Braines {% endblock %}
 {% block content %} 
     <p>This is the body of the Braines</p>
+    <h2>{{texting}}</h2>
+    <h2>{{texting|upper}}</h2>
+    <h2>{{texting|lower}}</h2>
+    <h2>{{texting|title}}</h2>
+    <h2>{{texting|reverse|upper}}</h2>
+    <h2>{{texting|replace('e', 'E')}}</h2>
 {% endblock %}

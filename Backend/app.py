@@ -13,7 +13,8 @@ def hello():
 
 @app.route('/brain')
 def brain():
-    return render_template('brain.html')
+    texting = 'Am greeting you all'
+    return render_template('brain.html', texting = texting)
 
 @app.route("/greet/<name>")
 def get(name):
@@ -33,7 +34,9 @@ def handle():
     else:
         return "There are parameters missing"
 
-
+@app.template_filter('reverse')
+def reverse(s):
+    return s[::-1]
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
