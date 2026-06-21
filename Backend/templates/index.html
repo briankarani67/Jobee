@@ -1,8 +1,803 @@
 
-  {% extends "base.html" %}
-  {% block title %}Hi {% endblock%}
-   {% block content %}
-    <h1 style="color: rgb(27, 17, 117);">Hello Everyone, we are here using base above with something dynamic</h1> 
-   {% endblock%}
-    
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <title>School of Education – Kirinyaga University</title>
+    <link rel="icon" type="image/png" href="./src/kyu.jpg" />
+    <style>
+      
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  color: #2d2d2d;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 600px;
+  background: linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.6) 0%,
+      rgba(167, 139, 250, 0.6) 100%
+    ),
+    url("./src/kilele.png") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-content {
+  z-index: 1;
+  padding: 2rem;
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.cta-button {
+  background: white;
+  color: #7c3aed;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+  animation: fadeInUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.15);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  color: #7c3aed;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  border-radius: 2px;
+}
+
+/* Dean Section with Image */
+.dean-section {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dean-image {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: top;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.dean-image:hover {
+  transform: scale(1.05);
+}
+
+.dean-text {
+  padding: 1rem;
+}
+
+.dean-message {
+  font-style: italic;
+  color: #555;
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  border-radius: 10px;
+  border-left: 5px solid #7c3aed;
+  margin-bottom: 1rem;
+}
+
+.dean-name {
+  font-weight: bold;
+  color: #7c3aed;
+  font-size: 1.1rem;
+}
+
+.dean-title {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.mission-box,
+.vision-box {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-radius: 15px;
+  border-left: 6px solid #7c3aed;
+  transition: transform 0.3s ease;
+}
+
+.mission-box:hover,
+.vision-box:hover {
+  transform: translateX(10px);
+}
+
+.mission-box h3,
+.vision-box h3 {
+  color: #7c3aed;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Courses Section */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(124, 58, 237, 0.3);
+}
+
+.course-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.1);
+}
+
+.course-content {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.course-content p {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+/* Achievements */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 5px solid #7c3aed;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-card h3 {
+  color: #7c3aed;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.achievement-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 280px;
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(124, 58, 237, 0.95), transparent);
+  color: white;
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+.gallery-caption {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-description {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* Stats Section */
+.stats-section {
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  padding: 4rem 2rem;
+  margin: 3rem 0;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+.stat-item {
+  color: white;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  animation: countUp 2s ease-out;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+  color: white;
+  padding: 3rem 2rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-section h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.footer-section p {
+  margin: 0.8rem 0;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background: white;
+  color: #7c3aed;
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .dean-section {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-vision {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .courses-grid,
+  .achievements-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>School of Education</h1>
+        <p class="hero-tagline">
+          Preparing Competent, Reflective, and Innovative Educators
+        </p>
+        <button class="cta-button">Explore Programs</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Dean's Message Section -->
+      <section class="section">
+        <h2>Message from the Dean</h2>
+        <div class="dean-section">
+          <img src="./src/dean.jpg" alt="Dean" class="dean-image" />
+          <div class="dean-text">
+            <div class="dean-message">
+              "Welcome to the School of Education at Kirinyaga University. Our
+              commitment is to nurture professional educators who uphold
+              integrity, innovation, and excellence in teaching and research. We
+              provide an environment that encourages critical thinking,
+              creativity, and continuous personal growth. Together, we prepare
+              future teachers capable of transforming society through quality
+              education."
+            </div>
+            <div class="dean-name">Dr. Miriam W. Kathuri</div>
+            <div class="dean-title">Dean, School of Education (Under SESS)</div>
+          </div>
+        </div>
+
+        <div class="mission-vision">
+          <div class="vision-box">
+            <h3>🎯 Our Vision</h3>
+            <p>
+              To be a leading School of Education producing highly competent
+              professionals who contribute to national development through
+              quality teaching, research, and innovation.
+            </p>
+          </div>
+
+          <div class="mission-box">
+            <h3>🌟 Our Mission</h3>
+            <p>
+              To provide learner-centered teacher education, promote
+              scholarship, foster professional growth, and produce graduates
+              equipped to meet the dynamic needs of the education sector.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">2,000+</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">80+</div>
+          <div class="stat-label">Qualified Teaching Staff</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Graduate Placement Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Industry & School Partners</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Courses Section -->
+      <section class="section">
+        <h2>Our Academic Programs</h2>
+
+        <div class="courses-grid">
+          <div class="course-card">
+            <img
+              src="./src/school.jpg"
+              class="course-image"
+              alt="B.Ed Science"
+            />
+            <div class="course-content">
+              <h3>Bachelor of Education (Science)</h3>
+              <p>
+                A professional program preparing teachers in subjects such as
+                Mathematics, Physics, Chemistry, and Biology, with emphasis on
+                pedagogy, practicum, and modern teaching approaches.
+              </p>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <img src="./src/school1.jpg" class="course-image" alt="B.Ed Arts" />
+            <div class="course-content">
+              <h3>Bachelor of Education (Arts)</h3>
+              <p>
+                Designed for future educators specializing in subjects like
+                English, Kiswahili, History, CRE, Geography, and Literature.
+                Includes teaching practice and curriculum studies.
+              </p>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <img src="./src/early.jpg" class="course-image" alt="ECDE" />
+            <div class="course-content">
+              <h3>B.Ed in Early Childhood & Primary Education</h3>
+              <p>
+                Focuses on child development, early learning theories,
+                instructional strategies, and practicum experiences tailored for
+                early childhood and primary school educators.
+              </p>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <img src="./src/school2.jpg" class="course-image" alt="M.Ed" />
+            <div class="course-content">
+              <h3>Master of Education (M.Ed)</h3>
+              <p>
+                A postgraduate program offering advanced training in educational
+                leadership, curriculum development, research methods, and
+                specialized areas of teaching.
+              </p>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <img src="./src/phd.jpg" class="course-image" alt="PhD" />
+            <div class="course-content">
+              <h3>PhD in Education</h3>
+              <p>
+                A research-based doctoral program aimed at producing scholars
+                and experts in education policy, pedagogy, and advanced
+                educational research.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section class="section">
+        <h2>Our Achievements</h2>
+
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon">🏆</div>
+            <h3>Accredited Quality Programs</h3>
+            <p>
+              All programs meet Commission for University Education (CUE)
+              standards, ensuring relevance and academic excellence.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">🎓</div>
+            <h3>Strong Teaching Practice Network</h3>
+            <p>
+              Partnerships with leading primary and secondary schools enable
+              students to gain practical, real-world teaching experience.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">📚</div>
+            <h3>Growing Research Output</h3>
+            <p>
+              Faculty and postgraduate students actively contribute to research
+              in education, curriculum studies, and teacher professional
+              development.
+            </p>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-icon">🌍</div>
+            <h3>Community Engagement</h3>
+            <p>
+              Students participate in outreach programs supporting local schools
+              through mentorship, teaching, and literacy initiatives.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section (unchanged except captions updated) -->
+      <section class="section">
+        <h2>Campus Life & Activities</h2>
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="./src/library.jpg" class="gallery-image" alt="Library" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">KYU Modern Library</div>
+              <div class="gallery-description">
+                Digital learning resources and peaceful study spaces
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./src/interactive.jpg"
+              class="gallery-image"
+              alt="Classroom"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Interactive Classrooms</div>
+              <div class="gallery-description">
+                Technology-enhanced learning environments
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="./src/lab.jpg" class="gallery-image" alt="Lab" />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Science Teaching Labs</div>
+              <div class="gallery-description">
+                Hands-on experience for science educators
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./src/graduation.jpg"
+              class="gallery-image"
+              alt="Graduation"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Graduation Celebrations</div>
+              <div class="gallery-description">
+                Honoring our successful graduates
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./src/praticum.jpeg"
+              class="gallery-image"
+              alt="Practicum"
+            />
+            <div class="gallery-overlay">
+              <div class="gallery-caption">Teaching Practicum</div>
+              <div class="gallery-description">
+                Real classroom exposure for student teachers
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>School of Education – KYU</h3>
+          <p>
+            Dedicated to producing skilled, ethical, and innovative educators
+            who contribute to national development and lifelong learning.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p>Admissions</p>
+          <p>Academic Calendar</p>
+          <p>Faculty Directory</p>
+          <p>Student Portal</p>
+          <p>Research & Publications</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>📍 Kirinyaga University, Kutus</p>
+          <p>School of Education Offices</p>
+          <p>Kutus–Kerugoya Road</p>
+          <p>📞 +254 709 742 000</p>
+          <p>✉️ info@kyu.ac.ke</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Kirinyaga University – School of Education. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

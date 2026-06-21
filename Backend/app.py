@@ -7,8 +7,8 @@ app = Flask(__name__, template_folder='templates')
 def login():
     return "You are logged in"
     
-@app.route('/render')
-def hello():
+@app.route('/kyu')
+def Kirinyaga():
     return render_template('index.html')
 
 @app.route('/brain')
