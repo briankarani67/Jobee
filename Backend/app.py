@@ -7,18 +7,13 @@ app = Flask(__name__, template_folder='templates')
 def login():
     return "You are logged in"
     
-@app.route('/kyu')
-def Kirinyaga():
-    return render_template('index.html')
+
 
 @app.route('/brain')
 def brain():
     texting = 'Am greeting you all'
     return render_template('brain.html', texting = texting)
 
-@app.route("/greet/<name>")
-def get(name):
-    return f"Hi {name}, Why always, you {name}?"
 
 @app.route("/add/<int:num1>/<int:num2>")
 def add(num1, num2):
@@ -39,4 +34,4 @@ def reverse(s):
     return s[::-1]
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0',port=5555 debug=True)
